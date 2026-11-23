@@ -1,13 +1,19 @@
 :root {
-  --paper: #f4f1e9;
-  --paper-deep: #eae5d9;
-  --ink: #1d3028;
-  --ink-soft: #3e5148;
-  --muted: #758078;
-  --line: rgba(29, 48, 40, .16);
-  --accent: #d4a35c;
-  --accent-soft: #ead7b8;
-  --white: #fffdf8;
+  --paper: #F7F5EF;
+  --paper-deep: #E9EEF3;
+
+  --ink: #18324F;
+  --ink-soft: #36516B;
+  --muted: #78889A;
+
+  --line: rgba(24, 50, 79, .15);
+
+  --accent: #E8B63E;
+  --accent-soft: #F6E7B8;
+  --accent-ink: #A87512;
+
+  --white: #FFFDF8;
+
   --serif: 'Playfair Display', Georgia, serif;
   --sans: 'DM Sans', Arial, sans-serif;
   --display: 'Manrope', Arial, sans-serif;
@@ -1009,3 +1015,187 @@ button { color: inherit; }
   .chicken-frequency small { font-size: 7px; }
   .chicken-frequency-count { font-size: 24px; }
 }
+
+/* =========================================
+   VMR NAVY + GOLD BRAND THEME
+   ========================================= */
+
+/* Dark premium surfaces */
+.hero-reimagined,
+.food-section,
+.location-section {
+  background: #18324F;
+}
+
+.care-section {
+  background: #1B3858;
+}
+
+.site-footer {
+  background: #10263F;
+}
+
+/* Cinematic hero overlay */
+.hero-reimagined {
+  background: #142B45;
+}
+
+.hero-backdrop .photo {
+  background: #1C3858;
+}
+
+.hero-backdrop-overlay {
+  background:
+    linear-gradient(
+      90deg,
+      rgba(10, 26, 45, .95) 0%,
+      rgba(15, 35, 57, .84) 38%,
+      rgba(15, 35, 57, .52) 68%,
+      rgba(15, 35, 57, .32) 100%
+    ),
+    linear-gradient(
+      0deg,
+      rgba(10, 25, 43, .66),
+      transparent 45%
+    );
+}
+
+/* Gold typography and highlights */
+.hero h1 em,
+h2 em,
+.story-principles span,
+.room-feature-number {
+  color: var(--accent-ink);
+}
+
+.hero-reimagined h1 em,
+.hero-reimagined .hero-contact-link:hover,
+.hero-reimagined .hero-bottomline-new a svg,
+.food-content h2 em,
+.location-copy h2 em {
+  color: #F3C95C;
+}
+
+.hero-reimagined .hero-contact-link:hover {
+  border-color: #F3C95C;
+}
+
+.hero-micro-dot {
+  background: var(--accent);
+  box-shadow: 0 0 0 5px rgba(232, 182, 62, .16);
+}
+
+/* Buttons */
+.button-dark {
+  background: var(--ink);
+  color: var(--white);
+}
+
+.button-dark:hover {
+  background: #294967;
+}
+
+.hero-reimagined .button-light {
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.hero-reimagined .button-light:hover {
+  background: #F3D77F;
+}
+
+/* Blue-tinted icon containers */
+.hero-feature-icon,
+.amenity-icon,
+.contact-card-icon {
+  background: #E7EEF5;
+  color: #476987;
+}
+
+/* Room and facility details */
+.room-feature-photo-tag {
+  background: rgba(24, 50, 79, .88);
+}
+
+.room-enquire-link:hover {
+  color: var(--accent-ink);
+}
+
+/* Contact section */
+.contact-section {
+  background: #EAF0F5;
+}
+
+.contact-text h2 em {
+  color: var(--accent-ink);
+}
+
+/* Location illustration */
+.location-map-art {
+  background: #E3EBF2;
+}
+
+.map-block {
+  background: rgba(116, 153, 183, .22);
+  border-color: rgba(75, 112, 145, .22);
+}
+
+.map-marker-pin {
+  background: var(--ink);
+  color: var(--accent);
+}
+
+/* Header and footer */
+.header-call svg,
+.contact-quick-links > a > svg:first-child {
+  color: var(--accent-ink);
+}
+
+.footer-middle a:hover,
+.back-top:hover {
+  color: var(--accent);
+}
+
+/* Floating call button */
+.floating-call {
+  background: #18324F;
+}
+
+/* Keep WhatsApp's recognizable brand green */
+.floating-whatsapp {
+  background: #25D366;
+}
+
+/* Form focus */
+.enquiry-modal input:focus,
+.enquiry-modal select:focus,
+.enquiry-modal textarea:focus {
+  border-color: var(--accent-ink);
+}
+
+/* Hero Glass Card & Accents in Navy/Gold */
+.hero-glass-card {
+  background: rgba(18, 42, 69, 0.75);
+  border-color: rgba(232, 182, 62, 0.2);
+}
+.hero-title-accent,
+.glass-tag {
+  color: #E8B63E;
+}
+.glass-icon-box {
+  background: rgba(232, 182, 62, 0.12);
+  border-color: rgba(232, 182, 62, 0.25);
+  color: #E8B63E;
+}
+.hero-glass-action {
+  background: #E8B63E;
+  color: #18324F;
+}
+.hero-glass-action:hover {
+  background: #F3C95C;
+}
+.hero-scroll-link:hover,
+.hero-scroll-link:hover svg {
+  color: #E8B63E;
+}
+
