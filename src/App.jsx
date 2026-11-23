@@ -29,6 +29,21 @@ function Instagram({ size = 24, color = 'currentColor', strokeWidth = 2, classNa
     </svg>
   );
 }
+
+function WhatsAppIcon({ size = 20, className = '' }) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      className={className}
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.05 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.82 11.82 0 00-3.48-8.413Z"/>
+    </svg>
+  );
+}
 import {
   siteConfig, roomOptions, mealPeriods, amenityGroups, sampleFaqs, galleryItems,
 } from './siteConfig';
@@ -138,65 +153,168 @@ function Header({ onOpenEnquiry }) {
 function Hero({ onOpenEnquiry }) {
   const heroRef = useRef(null);
   const { scrollYProgress } = useScroll({ target: heroRef, offset: ['start start', 'end start'] });
-  const imageY = useTransform(scrollYProgress, [0, 1], ['0%', '17%']);
-  const imageScale = useTransform(scrollYProgress, [0, 1], [1.04, 1.15]);
+  const imageY = useTransform(scrollYProgress, [0, 1], ['0%', '16%']);
+  const imageScale = useTransform(scrollYProgress, [0, 1], [1.03, 1.12]);
 
   return (
     <section className="hero hero-reimagined" id="top" ref={heroRef}>
       <motion.div className="hero-backdrop" style={{ y: imageY, scale: imageScale }} aria-hidden="true">
         <Photo
           src="https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=2200&q=90"
-          alt="Illustrative photograph of a shared hostel dormitory with multiple beds"
+          alt="Spacious hostel room with clean, comfortable beds"
           eager
         />
       </motion.div>
       <div className="hero-backdrop-overlay" />
-      <div className="hero-topline">
-        <span>VMR / BOYS HOSTEL</span>
-        <span>STUDENT LIVING · EVERYDAY COMFORT</span>
-      </div>
+
       <div className="hero-content">
         <motion.div
           className="hero-main-copy"
           initial="hidden"
           animate="visible"
-          variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.12, delayChildren: 0.16 } } }}
+          variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.1, delayChildren: 0.1 } } }}
         >
-          <motion.div variants={{ hidden: { opacity: 0, y: 18 }, visible: { opacity: 1, y: 0, transition: { duration: .65, ease: [.22, 1, .36, 1] } } }}>
-            <Eyebrow light>WELCOME TO VMR BOYS HOSTEL</Eyebrow>
+          <motion.div
+            className="hero-badge"
+            variants={{ hidden: { opacity: 0, y: 14 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5 } } }}
+          >
+            <span className="hero-badge-pulse" />
+            <span>Spacious 5-Sharing Rooms • Daily Hot Water • Home-Style Food</span>
           </motion.div>
-          <motion.h1 variants={{ hidden: { opacity: 0, y: 34 }, visible: { opacity: 1, y: 0, transition: { duration: .9, ease: [.22, 1, .36, 1] } } }}>
-            More than a bed.<br /><em>A better way to stay.</em>
+
+          <motion.h1
+            variants={{ hidden: { opacity: 0, y: 24 }, visible: { opacity: 1, y: 0, transition: { duration: 0.75, ease: [0.22, 1, 0.36, 1] } } }}
+          >
+            Clean, comfortable<br />
+            <span className="hero-title-accent">boys hostel living.</span>
           </motion.h1>
-          <motion.p className="hero-description" variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { duration: .7 } } }}>
-            Spacious five-sharing rooms, hot water, clean bathrooms and chicken served twice a week — everyday comforts that help make hostel life feel easier.
+
+          <motion.p
+            className="hero-description"
+            variants={{ hidden: { opacity: 0, y: 16 }, visible: { opacity: 1, y: 0, transition: { duration: 0.6 } } }}
+          >
+            A calm, well-managed environment built for students and working professionals. Thoughtfully furnished five-sharing rooms, reliable hot water, clean bathrooms, and wholesome daily meals with chicken served twice each week.
           </motion.p>
-          <motion.div className="hero-actions" variants={{ hidden: { opacity: 0, y: 18 }, visible: { opacity: 1, y: 0, transition: { duration: .65 } } }}>
-            <a className="button button-light" href="#rooms">Explore the rooms <ArrowUpRight size={17} /></a>
-            <WhatsAppLink className="hero-contact-link" message="Hi, I'm interested in VMR Boys Hostel. Please share details about the five-sharing rooms, facilities, food, fees and availability." icon={false}>Enquire on WhatsApp <ArrowRight size={17} /></WhatsAppLink>
+
+          <motion.div
+            className="hero-actions"
+            variants={{ hidden: { opacity: 0, y: 16 }, visible: { opacity: 1, y: 0, transition: { duration: 0.6 } } }}
+          >
+            <WhatsAppLink
+              className="button button-whatsapp"
+              message="Hi, I would like to know more about VMR Boys Hostel. Please share room availability, five-sharing details, fees, and food routine."
+              icon={false}
+            >
+              <WhatsAppIcon size={20} />
+              <span>Enquire on WhatsApp</span>
+              <ArrowUpRight size={17} />
+            </WhatsAppLink>
+
+            <a className="button button-glass" href="#rooms">
+              <span>View 5-Sharing Rooms</span>
+              <ArrowDown size={15} />
+            </a>
           </motion.div>
-          <motion.div className="hero-micro-proof" variants={{ hidden: { opacity: 0 }, visible: { opacity: 1, transition: { duration: .6 } } }}>
-            <span className="hero-micro-dot" /> FIVE-SHARING ACCOMMODATION · MADE FOR EVERYDAY LIVING
+
+          <motion.div
+            className="hero-trust-bar"
+            variants={{ hidden: { opacity: 0 }, visible: { opacity: 1, transition: { duration: 0.5, delay: 0.35 } } }}
+          >
+            <div className="hero-trust-item">
+              <Check size={14} className="trust-check" />
+              <span>Instant WhatsApp Reply</span>
+            </div>
+            <span className="hero-trust-sep">•</span>
+            <div className="hero-trust-item">
+              <Check size={14} className="trust-check" />
+              <span>Direct Management</span>
+            </div>
+            <span className="hero-trust-sep">•</span>
+            <div className="hero-trust-item">
+              <Check size={14} className="trust-check" />
+              <span>Zero Brokerage</span>
+            </div>
           </motion.div>
         </motion.div>
+
         <motion.aside
-          className="hero-essentials-card"
-          initial={{ opacity: 0, y: 28, rotate: 1.5 }}
-          animate={{ opacity: 1, y: 0, rotate: 0 }}
-          transition={{ delay: .62, duration: .8, ease: [.22, 1, .36, 1] }}
+          className="hero-glass-card"
+          initial={{ opacity: 0, y: 22 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3, duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
         >
-          <div className="hero-card-heading"><span>THE VMR ESSENTIALS</span><span>01 — 04</span></div>
-          <div className="hero-card-feature"><span className="hero-feature-icon"><BedDouble size={18} /></span><span><strong>Spacious five-sharing rooms</strong><small>Room to settle in together</small></span></div>
-          <div className="hero-card-feature"><span className="hero-feature-icon"><Droplets size={18} /></span><span><strong>Hot water</strong><small>A little everyday convenience</small></span></div>
-          <div className="hero-card-feature"><span className="hero-feature-icon"><Bath size={18} /></span><span><strong>Clean bathrooms</strong><small>Comfort in the essentials</small></span></div>
-          <div className="hero-card-feature"><span className="hero-feature-icon"><Utensils size={18} /></span><span><strong>Chicken twice a week</strong><small>Part of the weekly food routine</small></span></div>
-          <button className="hero-card-link" onClick={() => onOpenEnquiry('Five-sharing room and facilities details')}>Ask about staying at VMR <ArrowUpRight size={16} /></button>
+          <div className="hero-glass-header">
+            <div>
+              <span className="glass-tag">KEY AMENITIES</span>
+              <h3>Everyday Living Comfort</h3>
+            </div>
+            <span className="glass-status">Available</span>
+          </div>
+
+          <div className="hero-glass-features">
+            <div className="glass-feature">
+              <div className="glass-icon-box">
+                <BedDouble size={18} />
+              </div>
+              <div>
+                <strong>Spacious 5-sharing rooms</strong>
+                <small>Ample moving room, dedicated storage & study space</small>
+              </div>
+            </div>
+
+            <div className="glass-feature">
+              <div className="glass-icon-box">
+                <Droplets size={18} />
+              </div>
+              <div>
+                <strong>Hot water facility</strong>
+                <small>Geyser equipped for reliable morning routines</small>
+              </div>
+            </div>
+
+            <div className="glass-feature">
+              <div className="glass-icon-box">
+                <Bath size={18} />
+              </div>
+              <div>
+                <strong>Clean, hygienic bathrooms</strong>
+                <small>Daily maintenance and sanitized amenities</small>
+              </div>
+            </div>
+
+            <div className="glass-feature">
+              <div className="glass-icon-box">
+                <Utensils size={18} />
+              </div>
+              <div>
+                <strong>Chicken twice a week</strong>
+                <small>Nutritious, tasty home-style meals included</small>
+              </div>
+            </div>
+          </div>
+
+          <div className="hero-glass-footer">
+            <button
+              className="hero-glass-action"
+              onClick={() => onOpenEnquiry('Hero Card: Five-sharing room and facilities enquiry')}
+            >
+              <span>Check Availability & Fees</span>
+              <ArrowUpRight size={15} />
+            </button>
+            <a href={`tel:${siteConfig.phoneNumber}`} className="hero-glass-phone">
+              <Phone size={13} />
+              <span>Direct Call: {siteConfig.phoneDisplay}</span>
+            </a>
+          </div>
         </motion.aside>
       </div>
-      <div className="hero-bottomline hero-bottomline-new">
+
+      <div className="hero-bottomline-refined">
         <span>VMR BOYS HOSTEL</span>
-        <span className="hero-bottom-center">A CLEAN, COMFORTABLE PLACE TO COME BACK TO</span>
-        <a href="#story">SCROLL TO EXPLORE <ArrowDown size={14} /></a>
+        <a href="#story" className="hero-scroll-link">
+          <span>SCROLL TO EXPLORE</span>
+          <ArrowDown size={14} />
+        </a>
       </div>
     </section>
   );
@@ -433,7 +551,21 @@ function Footer() {
 }
 
 function FloatingActions() {
-  return <div className="floating-actions"><a className="floating-call" href={`tel:${siteConfig.phoneNumber}`} aria-label="Call hostel"><Phone size={18} /></a><WhatsAppLink className="floating-whatsapp" message="Hi, I would like to enquire about VMR Boys Hostel. Please contact me with the details." aria-label="WhatsApp VMR Boys Hostel"><MessageCircle size={21} /></WhatsAppLink></div>;
+  return (
+    <div className="floating-actions">
+      <a className="floating-call" href={`tel:${siteConfig.phoneNumber}`} aria-label="Call hostel">
+        <Phone size={18} />
+      </a>
+      <WhatsAppLink
+        className="floating-whatsapp"
+        message="Hi, I would like to enquire about VMR Boys Hostel. Please contact me with the details."
+        aria-label="WhatsApp VMR Boys Hostel"
+        icon={false}
+      >
+        <WhatsAppIcon size={22} />
+      </WhatsAppLink>
+    </div>
+  );
 }
 
 function EnquiryModal({ open, onClose, initialInterest }) {
