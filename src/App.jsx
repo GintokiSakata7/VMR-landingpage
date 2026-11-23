@@ -418,7 +418,7 @@ function FoodSection() {
             <div><span className="meal-detail-kicker">{meal.label.toUpperCase()}</span><h3>{activeMeal === 'breakfast' ? 'A fresh start to the day.' : activeMeal === 'lunch' ? 'A proper pause in the day.' : activeMeal === 'snacks' ? 'A little something between.' : 'A good way to wind down.'}</h3><p>Ask the team for today's dishes, serving time and current meal plan.</p></div>
           </motion.div>
         </AnimatePresence>
-        <WhatsAppLink className="food-cta" message="Hi, could you please share the latest VMR Boys Hostel food menu, meal timings and dining details?">Ask for the current menu <ArrowUpRight size={18} /></WhatsAppLink>
+        <WhatsAppLink className="food-cta" message="Hi, could you please share the latest VMR Boys Hostel food menu, meal timings and dining details?" icon={false}>Ask for the current menu <ArrowUpRight size={16} /></WhatsAppLink>
         <p className="food-disclaimer">The weekly chicken days, dishes and meal timings can be confirmed directly with VMR management.</p>
       </div>
     </section>
