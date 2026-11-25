@@ -714,326 +714,142 @@ button { color: inherit; }
 }
 
 /* --------------------------------------------------------------------------
-   VMR REPOSITIONING — cinematic hospitality hero + five-sharing room story
-   Motion is restrained, scroll-linked and reduced-motion aware.
+   HERO CLEAN — lightweight, professional, ivory background
    -------------------------------------------------------------------------- */
-.hero-reimagined {
-  min-height: max(720px, min(890px, calc(100svh - 84px)));
-  position: relative;
-  isolation: isolate;
-  overflow: hidden;
-  padding: 0 5.4%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  color: var(--paper);
-  background: #101c15;
+.hero-clean {
+  scroll-margin-top: 84px;
+  background: var(--paper);
+  padding: 56px 8.3% 48px;
 }
-.hero-backdrop {
-  position: absolute;
-  z-index: -2;
-  inset: -6% 0 0;
-  height: 114%;
-  overflow: hidden;
-  transform-origin: center center;
-  will-change: transform;
-}
-.hero-backdrop .photo { width: 100%; height: 100%; background: #1c2b21; }
-.hero-backdrop .photo img {
-  object-position: center 46%;
-  filter: saturate(0.85) contrast(1.04) brightness(0.9);
-}
-.hero-backdrop-overlay {
-  position: absolute;
-  z-index: -1;
-  inset: 0;
-  background:
-    linear-gradient(90deg, rgba(12,23,17,.95) 0%, rgba(12,23,17,.82) 42%, rgba(12,23,17,.38) 75%, rgba(12,23,17,.12) 100%),
-    linear-gradient(0deg, rgba(10,20,15,.88) 0%, transparent 28%, rgba(10,20,15,.25) 100%);
-}
-
-.hero-content {
-  width: 100%;
+.hero-clean-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.15fr) minmax(320px, 395px);
-  gap: clamp(35px, 6vw, 90px);
+  grid-template-columns: 1.1fr .9fr;
+  gap: clamp(40px, 6vw, 88px);
   align-items: center;
-  padding: 52px 0 48px;
+  min-height: 520px;
 }
-.hero-main-copy { max-width: 760px; }
-
-/* Clean Pill Badge */
-.hero-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  padding: 6px 14px 6px 11px;
-  background: rgba(255,255,255,.08);
-  border: 1px solid rgba(255,255,255,.18);
-  border-radius: 999px;
-  color: #f3efe5;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: .03em;
-  backdrop-filter: blur(10px);
-}
-.hero-badge-pulse {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: #25D366;
-  box-shadow: 0 0 0 3px rgba(37,211,102,.25);
-}
-
-/* Genuine, confident, human headline */
-.hero-reimagined h1 {
-  margin: 22px 0 20px;
-  color: #ffffff;
-  font: 500 clamp(54px, 6.8vw, 94px)/1.02 var(--serif);
-  letter-spacing: -.045em;
-}
-.hero-title-accent {
-  color: #ebd0a3;
-  font-style: italic;
-  font-weight: 400;
-}
-
-.hero-reimagined .hero-description {
+.hero-clean-copy {
   max-width: 580px;
-  color: rgba(244,241,233,.82);
-  font-size: clamp(14px, 1.1vw, 16px);
-  line-height: 1.8;
-  margin: 0;
 }
-
-/* Hero Actions */
-.hero-reimagined .hero-actions {
-  margin-top: 32px;
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 16px;
-}
-
-/* WhatsApp CTA Button */
-.button-whatsapp {
-  min-height: 52px;
-  padding: 0 24px;
-  background: #25D366;
-  color: #ffffff !important;
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: .02em;
-  display: inline-flex;
-  align-items: center;
-  gap: 11px;
-  border-radius: 8px;
-  border: 1px solid rgba(255,255,255,.25);
-  box-shadow: 0 8px 24px -4px rgba(37,211,102,.42);
-  transition: all .22s ease;
-  cursor: pointer;
-  text-decoration: none;
-}
-.button-whatsapp:hover {
-  background: #20bd5a;
-  transform: translateY(-2px);
-  box-shadow: 0 12px 28px -4px rgba(37,211,102,.55);
-}
-.button-whatsapp svg { flex-shrink: 0; }
-
-/* Secondary Glass Button */
-.button-glass {
-  min-height: 52px;
-  padding: 0 22px;
-  background: rgba(255,255,255,.09);
-  color: #ffffff !important;
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: .02em;
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  border-radius: 8px;
-  border: 1px solid rgba(255,255,255,.22);
-  backdrop-filter: blur(12px);
-  transition: all .22s ease;
-  cursor: pointer;
-  text-decoration: none;
-}
-.button-glass:hover {
-  background: rgba(255,255,255,.18);
-  border-color: rgba(255,255,255,.4);
-  transform: translateY(-2px);
-}
-
-/* Trust Bar */
-.hero-trust-bar {
-  margin-top: 26px;
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 12px;
-  color: rgba(255,255,255,.68);
+.hero-clean-label {
+  margin: 0 0 18px;
+  color: var(--muted);
   font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+.hero-clean h1 {
+  margin: 0 0 20px;
+  font: 500 clamp(42px, 5.2vw, 68px)/1.08 var(--serif);
+  letter-spacing: -.05em;
+  color: var(--ink);
+}
+.hero-clean h1 em {
+  color: var(--accent-ink);
   font-weight: 500;
 }
-.hero-trust-item {
+.hero-clean-desc {
+  max-width: 440px;
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 14px;
+  line-height: 1.85;
+}
+.hero-clean-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 32px;
+}
+.hero-clean-wa {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-}
-.trust-check { color: #25D366; }
-.hero-trust-sep { opacity: .4; font-size: 10px; }
-
-/* Modern Frosted Glass Card on Right */
-.hero-glass-card {
-  align-self: center;
-  width: 100%;
-  padding: 24px 24px 22px;
-  color: #ffffff;
-  background: rgba(16,29,22,.72);
-  border: 1px solid rgba(255,255,255,.14);
-  border-radius: 14px;
-  box-shadow: 0 24px 60px rgba(0,0,0,.35);
-  backdrop-filter: blur(20px);
-}
-
-.hero-glass-header {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 12px;
-  padding-bottom: 15px;
-  border-bottom: 1px solid rgba(255,255,255,.12);
-}
-.glass-tag {
-  display: block;
-  font-size: 9px;
-  font-weight: 700;
-  letter-spacing: .14em;
-  color: #ebd0a3;
-  text-transform: uppercase;
-}
-.hero-glass-header h3 {
-  margin: 3px 0 0;
-  font-size: 15px;
-  font-weight: 600;
-  letter-spacing: -.01em;
-  color: #ffffff;
-}
-.glass-status {
-  padding: 4px 9px;
-  background: rgba(37,211,102,.15);
-  border: 1px solid rgba(37,211,102,.35);
-  border-radius: 999px;
-  color: #34d399;
-  font-size: 9px;
-  font-weight: 700;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-}
-
-.hero-glass-features {
-  display: flex;
-  flex-direction: column;
-}
-.glass-feature {
-  display: flex;
-  align-items: center;
-  gap: 13px;
-  padding: 13px 0;
-  border-bottom: 1px solid rgba(255,255,255,.08);
-}
-.glass-icon-box {
-  width: 36px;
-  height: 36px;
-  flex-shrink: 0;
-  border-radius: 8px;
-  background: rgba(255,255,255,.08);
-  border: 1px solid rgba(255,255,255,.1);
-  display: grid;
-  place-items: center;
-  color: #ebd0a3;
-}
-.glass-feature strong {
-  display: block;
-  font-size: 13px;
-  font-weight: 600;
-  color: #ffffff;
-  line-height: 1.3;
-}
-.glass-feature small {
-  display: block;
-  font-size: 11px;
-  color: rgba(244,241,233,.65);
-  line-height: 1.4;
-  margin-top: 2px;
-}
-
-.hero-glass-footer {
-  margin-top: 16px;
-  display: flex;
-  flex-direction: column;
   gap: 10px;
+  padding: 14px 24px;
+  background: #25D366;
+  color: #ffffff !important;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .01em;
+  border-radius: 8px;
+  border: none;
+  box-shadow: 0 6px 20px -3px rgba(37,211,102,.35);
+  transition: all .22s ease;
+  cursor: pointer;
+  text-decoration: none;
 }
-.hero-glass-action {
-  width: 100%;
-  min-height: 44px;
-  display: flex;
+.hero-clean-wa:hover {
+  background: #20bd5a;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 26px -3px rgba(37,211,102,.48);
+}
+.hero-clean-wa svg { flex-shrink: 0; }
+.hero-clean-secondary {
+  display: inline-flex;
   align-items: center;
-  justify-content: center;
   gap: 8px;
-  background: #ebd0a3;
-  color: #122118;
+  padding: 6px 0;
+  color: var(--ink);
   font-size: 12px;
   font-weight: 700;
-  border: none;
-  border-radius: 7px;
-  cursor: pointer;
-  transition: all .2s ease;
-}
-.hero-glass-action:hover {
-  background: #f7e2c0;
-  transform: translateY(-1px);
-}
-.hero-glass-phone {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 7px;
-  color: rgba(255,255,255,.7);
-  font-size: 11px;
-  font-weight: 600;
+  border-bottom: 1px solid var(--line);
+  transition: gap .2s ease, border-color .2s ease;
   text-decoration: none;
-  transition: color .2s ease;
 }
-.hero-glass-phone:hover { color: #ffffff; }
-
-/* Clean Bottom Bar */
-.hero-bottomline-refined {
-  min-height: 56px;
+.hero-clean-secondary:hover {
+  gap: 12px;
+  border-color: var(--accent);
+}
+.hero-clean-highlights {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  border-top: 1px solid rgba(255,255,255,.12);
-  color: rgba(255,255,255,.5);
-  font-size: 9px;
-  font-weight: 700;
-  letter-spacing: .16em;
+  flex-wrap: wrap;
+  gap: 18px;
+  margin-top: 30px;
+  padding-top: 22px;
+  border-top: 1px solid var(--line);
 }
-.hero-scroll-link {
+.hero-clean-highlights span {
   display: inline-flex;
   align-items: center;
   gap: 7px;
-  color: rgba(255,255,255,.75);
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 600;
+}
+.hero-clean-highlights svg {
+  color: var(--accent-ink);
+}
+.hero-clean-image {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 18px 50px rgba(24,50,79,.12);
+}
+.hero-clean-image .photo {
+  height: clamp(380px, 36vw, 520px);
+}
+.hero-clean-image .photo img {
+  object-position: center 50%;
+}
+.hero-clean-image-tag {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 7px 12px;
+  background: rgba(24,50,79,.82);
+  backdrop-filter: blur(8px);
+  color: #ffffff;
   font-size: 9px;
   font-weight: 700;
-  letter-spacing: .14em;
-  text-decoration: none;
-  transition: color .2s ease;
+  letter-spacing: .12em;
+  border-radius: 6px;
 }
-.hero-scroll-link:hover { color: #ebd0a3; }
-.hero-scroll-link svg { color: #ebd0a3; }
 
 /* Single, true-to-offer room presentation — no invented room categories. */
 .room-feature-layout { display: grid; grid-template-columns: 1.12fr .88fr; gap: clamp(30px, 6vw, 86px); align-items: center; }
@@ -1082,35 +898,33 @@ button { color: inherit; }
 }
 
 @media (max-width: 1120px) {
-  .hero-reimagined { min-height: max(680px, calc(100svh - 74px)); padding-left: 5%; padding-right: 5%; }
-  .hero-content { grid-template-columns: minmax(0, 1fr) minmax(290px, 340px); gap: 32px; }
-  .hero-reimagined h1 { font-size: clamp(48px, 6.4vw, 76px); }
+  .hero-clean { padding: 44px 6% 40px; }
+  .hero-clean-grid { gap: 36px; }
+  .hero-clean h1 { font-size: clamp(38px, 4.8vw, 58px); }
   .room-feature-layout { gap: 38px; }
 }
 @media (max-width: 900px) {
-  .hero-reimagined { min-height: auto; padding: 0 5%; }
-  .hero-content { grid-template-columns: 1fr; gap: 38px; padding: 48px 0 42px; }
-  .hero-main-copy { max-width: 760px; }
-  .hero-reimagined h1 { font-size: clamp(48px, 7.5vw, 72px); }
-  .hero-glass-card { max-width: 520px; }
+  .hero-clean { padding: 36px 5% 32px; }
+  .hero-clean-grid { grid-template-columns: 1fr; gap: 32px; }
+  .hero-clean-copy { max-width: 100%; }
+  .hero-clean h1 { font-size: clamp(36px, 7vw, 52px); }
+  .hero-clean-image { max-width: 560px; }
   .room-feature-layout { grid-template-columns: 1fr 1fr; gap: 28px; }
   .room-feature-photo { height: 430px; }
 }
 @media (max-width: 680px) {
-  .hero-reimagined { min-height: auto; padding: 0 18px; }
-  .hero-backdrop { inset: -2% 0 0; height: 102%; }
-  .hero-backdrop .photo img { object-position: 54% center; }
-  .hero-backdrop-overlay { background: linear-gradient(90deg, rgba(12,23,17,.92), rgba(12,23,17,.72)), linear-gradient(0deg, rgba(10,20,15,.9), transparent 55%); }
-  .hero-content { display: flex; flex-direction: column; align-items: stretch; gap: 30px; padding: 45px 0 35px; }
-  .hero-badge { font-size: 10px; padding: 5px 12px; }
-  .hero-reimagined h1 { margin: 18px 0 16px; font-size: clamp(38px, 10.5vw, 54px); line-height: 1.04; letter-spacing: -.04em; }
-  .hero-reimagined .hero-description { max-width: 100%; font-size: 13px; line-height: 1.7; }
-  .hero-reimagined .hero-actions { align-items: stretch; flex-direction: column; gap: 12px; margin-top: 24px; }
-  .button-whatsapp, .button-glass { width: 100%; justify-content: center; min-height: 48px; }
-  .hero-trust-bar { margin-top: 20px; font-size: 10px; gap: 8px; flex-direction: column; align-items: flex-start; }
-  .hero-trust-sep { display: none; }
-  .hero-glass-card { padding: 18px 16px; border-radius: 12px; }
-  .hero-bottomline-refined { height: 50px; font-size: 8px; letter-spacing: .12em; }
+  .hero-clean { padding: 28px 20px 24px; }
+  .hero-clean-grid { gap: 24px; }
+  .hero-clean-label { font-size: 9px; margin-bottom: 14px; }
+  .hero-clean h1 { font-size: clamp(32px, 9vw, 46px); margin-bottom: 14px; }
+  .hero-clean-desc { font-size: 12px; line-height: 1.75; }
+  .hero-clean-actions { flex-direction: column; align-items: stretch; gap: 12px; margin-top: 24px; }
+  .hero-clean-wa { justify-content: center; width: 100%; }
+  .hero-clean-secondary { justify-content: center; width: fit-content; }
+  .hero-clean-highlights { gap: 12px; margin-top: 22px; padding-top: 18px; }
+  .hero-clean-highlights span { font-size: 10px; }
+  .hero-clean-image .photo { height: 280px; }
+  .hero-clean-image-tag { bottom: 12px; left: 12px; padding: 6px 10px; font-size: 8px; }
   .room-feature-layout { display: flex; flex-direction: column; align-items: stretch; gap: 28px; }
   .room-feature-photo { height: 330px; }
   .room-feature-photo-tag { left: 13px; top: 13px; padding: 8px 10px; font-size: 6px; }
@@ -1132,7 +946,6 @@ button { color: inherit; }
    ========================================= */
 
 /* Dark premium surfaces */
-.hero-reimagined,
 .food-section,
 .location-section {
   background: #18324F;
@@ -1146,32 +959,8 @@ button { color: inherit; }
   background: #10263F;
 }
 
-/* Cinematic hero overlay */
-.hero-reimagined {
-  background: #142B45;
-}
-
-.hero-backdrop .photo {
-  background: #1C3858;
-}
-
-.hero-backdrop-overlay {
-  background:
-    linear-gradient(
-      90deg,
-      rgba(10, 26, 45, .95) 0%,
-      rgba(15, 35, 57, .84) 38%,
-      rgba(15, 35, 57, .52) 68%,
-      rgba(15, 35, 57, .32) 100%
-    ),
-    linear-gradient(
-      0deg,
-      rgba(10, 25, 43, .66),
-      transparent 45%
-    );
-}
-
 /* Gold typography and highlights */
+.hero-clean h1 em,
 .hero h1 em,
 h2 em,
 .story-principles span,
@@ -1179,21 +968,9 @@ h2 em,
   color: var(--accent-ink);
 }
 
-.hero-reimagined h1 em,
-.hero-reimagined .hero-contact-link:hover,
-.hero-reimagined .hero-bottomline-new a svg,
 .food-content h2 em,
 .location-copy h2 em {
   color: #F3C95C;
-}
-
-.hero-reimagined .hero-contact-link:hover {
-  border-color: #F3C95C;
-}
-
-.hero-micro-dot {
-  background: var(--accent);
-  box-shadow: 0 0 0 5px rgba(232, 182, 62, .16);
 }
 
 /* Buttons */
@@ -1206,17 +983,7 @@ h2 em,
   background: #294967;
 }
 
-.hero-reimagined .button-light {
-  background: var(--paper);
-  color: var(--ink);
-}
-
-.hero-reimagined .button-light:hover {
-  background: #F3D77F;
-}
-
 /* Blue-tinted icon containers */
-.hero-feature-icon,
 .amenity-icon,
 .contact-card-icon {
   background: #E7EEF5;
@@ -1282,31 +1049,5 @@ h2 em,
 .enquiry-modal select:focus,
 .enquiry-modal textarea:focus {
   border-color: var(--accent-ink);
-}
-
-/* Hero Glass Card & Accents in Navy/Gold */
-.hero-glass-card {
-  background: rgba(18, 42, 69, 0.75);
-  border-color: rgba(232, 182, 62, 0.2);
-}
-.hero-title-accent,
-.glass-tag {
-  color: #E8B63E;
-}
-.glass-icon-box {
-  background: rgba(232, 182, 62, 0.12);
-  border-color: rgba(232, 182, 62, 0.25);
-  color: #E8B63E;
-}
-.hero-glass-action {
-  background: #E8B63E;
-  color: #18324F;
-}
-.hero-glass-action:hover {
-  background: #F3C95C;
-}
-.hero-scroll-link:hover,
-.hero-scroll-link:hover svg {
-  color: #E8B63E;
 }
 
