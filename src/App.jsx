@@ -157,31 +157,32 @@ function Hero() {
           className="hero-clean-copy"
           initial="hidden"
           animate="visible"
-          variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.08, delayChildren: 0.05 } } }}
+          variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.06, delayChildren: 0.03 } } }}
         >
           <motion.p
             className="hero-clean-label"
-            variants={{ hidden: { opacity: 0, y: 10 }, visible: { opacity: 1, y: 0, transition: { duration: 0.4 } } }}
+            variants={{ hidden: { opacity: 0, y: 8 }, visible: { opacity: 1, y: 0, transition: { duration: 0.35 } } }}
           >
+            <span className="hero-clean-dot" aria-hidden="true" />
             VMR Boys Hostel · {siteConfig.city}
           </motion.p>
 
           <motion.h1
-            variants={{ hidden: { opacity: 0, y: 18 }, visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } } }}
+            variants={{ hidden: { opacity: 0, y: 12 }, visible: { opacity: 1, y: 0, transition: { duration: 0.45, ease: [0.22, 1, 0.36, 1] } } }}
           >
             A clean, comfortable<br />place to <em>call home.</em>
           </motion.h1>
 
           <motion.p
             className="hero-clean-desc"
-            variants={{ hidden: { opacity: 0, y: 12 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5 } } }}
+            variants={{ hidden: { opacity: 0, y: 10 }, visible: { opacity: 1, y: 0, transition: { duration: 0.4 } } }}
           >
             Spacious five-sharing rooms, daily hot water, hygienic bathrooms, and home-style meals with chicken twice a week. Everything a student or working professional needs.
           </motion.p>
 
           <motion.div
             className="hero-clean-actions"
-            variants={{ hidden: { opacity: 0, y: 12 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5 } } }}
+            variants={{ hidden: { opacity: 0, y: 10 }, visible: { opacity: 1, y: 0, transition: { duration: 0.4 } } }}
           >
             <WhatsAppLink
               className="hero-clean-wa"
@@ -192,14 +193,19 @@ function Hero() {
               Enquire on WhatsApp
             </WhatsAppLink>
 
-            <a className="hero-clean-secondary" href="#rooms">
-              View rooms <ArrowDown size={14} />
-            </a>
+            <div className="hero-clean-subactions">
+              <a className="hero-clean-call" href={`tel:${siteConfig.phoneNumber}`}>
+                <Phone size={14} /> Call {siteConfig.phoneDisplay}
+              </a>
+              <a className="hero-clean-secondary" href="#rooms">
+                View rooms <ArrowDown size={14} />
+              </a>
+            </div>
           </motion.div>
 
           <motion.div
             className="hero-clean-highlights"
-            variants={{ hidden: { opacity: 0 }, visible: { opacity: 1, transition: { duration: 0.4, delay: 0.2 } } }}
+            variants={{ hidden: { opacity: 0 }, visible: { opacity: 1, transition: { duration: 0.35, delay: 0.12 } } }}
           >
             <span><BedDouble size={15} /> 5-Sharing Rooms</span>
             <span><Droplets size={15} /> Hot Water</span>
@@ -209,9 +215,9 @@ function Hero() {
 
         <motion.div
           className="hero-clean-image"
-          initial={{ opacity: 0, scale: 0.97 }}
+          initial={{ opacity: 0, scale: 0.98 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.15 }}
+          transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1], delay: 0.06 }}
         >
           <Photo
             src="https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=1400&q=88"
