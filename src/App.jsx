@@ -1,11 +1,10 @@
-import { useEffect, useMemo, useRef, useState } from 'react';
-import { AnimatePresence, motion, useScroll, useSpring, useTransform } from 'motion/react';
+import { useEffect, useMemo, useState } from 'react';
+import { AnimatePresence, motion, useScroll, useSpring } from 'motion/react';
 import {
-  ArrowDown, ArrowDownRight, ArrowRight, ArrowUp, ArrowUpRight, BedDouble, Bath,
-  BookOpen, CalendarDays, Check, ChevronDown, Clock3, Coffee, Droplets,
-  ExternalLink, HeartHandshake, MapPin, Menu, MessageCircle,
-  Moon, Phone, ShieldCheck, Sparkles, Sun, Utensils, Wifi, X, Camera,
-  UsersRound, WashingMachine, CircleHelp, Leaf, GraduationCap, Mail,
+  ArrowDown, ArrowDownRight, ArrowUp, ArrowUpRight, BedDouble, Bath,
+  Check, Coffee, Droplets, ExternalLink, HeartHandshake, MapPin, Menu,
+  MessageCircle, Moon, Phone, Sparkles, Sun, Utensils, X, Camera,
+  UsersRound, CircleHelp,
 } from 'lucide-react';
 
 function Instagram({ size = 24, color = 'currentColor', strokeWidth = 2, className = '', ...props }) {
@@ -150,171 +149,79 @@ function Header({ onOpenEnquiry }) {
   );
 }
 
-function Hero({ onOpenEnquiry }) {
-  const heroRef = useRef(null);
-  const { scrollYProgress } = useScroll({ target: heroRef, offset: ['start start', 'end start'] });
-  const imageY = useTransform(scrollYProgress, [0, 1], ['0%', '16%']);
-  const imageScale = useTransform(scrollYProgress, [0, 1], [1.03, 1.12]);
-
+function Hero() {
   return (
-    <section className="hero hero-reimagined" id="top" ref={heroRef}>
-      <motion.div className="hero-backdrop" style={{ y: imageY, scale: imageScale }} aria-hidden="true">
-        <Photo
-          src="https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=2200&q=90"
-          alt="Spacious hostel room with clean, comfortable beds"
-          eager
-        />
-      </motion.div>
-      <div className="hero-backdrop-overlay" />
-
-      <div className="hero-content">
+    <section className="hero-clean" id="top">
+      <div className="hero-clean-grid">
         <motion.div
-          className="hero-main-copy"
+          className="hero-clean-copy"
           initial="hidden"
           animate="visible"
-          variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.1, delayChildren: 0.1 } } }}
+          variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.08, delayChildren: 0.05 } } }}
         >
-          <motion.div
-            className="hero-badge"
-            variants={{ hidden: { opacity: 0, y: 14 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5 } } }}
+          <motion.p
+            className="hero-clean-label"
+            variants={{ hidden: { opacity: 0, y: 10 }, visible: { opacity: 1, y: 0, transition: { duration: 0.4 } } }}
           >
-            <span className="hero-badge-pulse" />
-            <span>Spacious 5-Sharing Rooms • Daily Hot Water • Home-Style Food</span>
-          </motion.div>
+            VMR Boys Hostel · {siteConfig.city}
+          </motion.p>
 
           <motion.h1
-            variants={{ hidden: { opacity: 0, y: 24 }, visible: { opacity: 1, y: 0, transition: { duration: 0.75, ease: [0.22, 1, 0.36, 1] } } }}
+            variants={{ hidden: { opacity: 0, y: 18 }, visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } } }}
           >
-            Clean, comfortable<br />
-            <span className="hero-title-accent">boys hostel living.</span>
+            A clean, comfortable<br />place to <em>call home.</em>
           </motion.h1>
 
           <motion.p
-            className="hero-description"
-            variants={{ hidden: { opacity: 0, y: 16 }, visible: { opacity: 1, y: 0, transition: { duration: 0.6 } } }}
+            className="hero-clean-desc"
+            variants={{ hidden: { opacity: 0, y: 12 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5 } } }}
           >
-            A calm, well-managed environment built for students and working professionals. Thoughtfully furnished five-sharing rooms, reliable hot water, clean bathrooms, and wholesome daily meals with chicken served twice each week.
+            Spacious five-sharing rooms, daily hot water, hygienic bathrooms, and home-style meals with chicken twice a week. Everything a student or working professional needs.
           </motion.p>
 
           <motion.div
-            className="hero-actions"
-            variants={{ hidden: { opacity: 0, y: 16 }, visible: { opacity: 1, y: 0, transition: { duration: 0.6 } } }}
+            className="hero-clean-actions"
+            variants={{ hidden: { opacity: 0, y: 12 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5 } } }}
           >
             <WhatsAppLink
-              className="button button-whatsapp"
-              message="Hi, I would like to know more about VMR Boys Hostel. Please share room availability, five-sharing details, fees, and food routine."
+              className="hero-clean-wa"
+              message="Hi, I would like to know more about VMR Boys Hostel. Please share room availability, fees, and food details."
               icon={false}
             >
-              <WhatsAppIcon size={20} />
-              <span>Enquire on WhatsApp</span>
-              <ArrowUpRight size={17} />
+              <WhatsAppIcon size={18} />
+              Enquire on WhatsApp
             </WhatsAppLink>
 
-            <a className="button button-glass" href="#rooms">
-              <span>View 5-Sharing Rooms</span>
-              <ArrowDown size={15} />
+            <a className="hero-clean-secondary" href="#rooms">
+              View rooms <ArrowDown size={14} />
             </a>
           </motion.div>
 
           <motion.div
-            className="hero-trust-bar"
-            variants={{ hidden: { opacity: 0 }, visible: { opacity: 1, transition: { duration: 0.5, delay: 0.35 } } }}
+            className="hero-clean-highlights"
+            variants={{ hidden: { opacity: 0 }, visible: { opacity: 1, transition: { duration: 0.4, delay: 0.2 } } }}
           >
-            <div className="hero-trust-item">
-              <Check size={14} className="trust-check" />
-              <span>Instant WhatsApp Reply</span>
-            </div>
-            <span className="hero-trust-sep">•</span>
-            <div className="hero-trust-item">
-              <Check size={14} className="trust-check" />
-              <span>Direct Management</span>
-            </div>
-            <span className="hero-trust-sep">•</span>
-            <div className="hero-trust-item">
-              <Check size={14} className="trust-check" />
-              <span>Zero Brokerage</span>
-            </div>
+            <span><BedDouble size={15} /> 5-Sharing Rooms</span>
+            <span><Droplets size={15} /> Hot Water</span>
+            <span><Utensils size={15} /> Chicken 2×/week</span>
           </motion.div>
         </motion.div>
 
-        <motion.aside
-          className="hero-glass-card"
-          initial={{ opacity: 0, y: 22 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3, duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
+        <motion.div
+          className="hero-clean-image"
+          initial={{ opacity: 0, scale: 0.97 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.15 }}
         >
-          <div className="hero-glass-header">
-            <div>
-              <span className="glass-tag">KEY AMENITIES</span>
-              <h3>Everyday Living Comfort</h3>
-            </div>
-            <span className="glass-status">Available</span>
+          <Photo
+            src="https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=1400&q=88"
+            alt="Spacious hostel room with clean beds"
+            eager
+          />
+          <div className="hero-clean-image-tag">
+            <MapPin size={12} /> {siteConfig.city}
           </div>
-
-          <div className="hero-glass-features">
-            <div className="glass-feature">
-              <div className="glass-icon-box">
-                <BedDouble size={18} />
-              </div>
-              <div>
-                <strong>Spacious 5-sharing rooms</strong>
-                <small>Ample moving room, dedicated storage & study space</small>
-              </div>
-            </div>
-
-            <div className="glass-feature">
-              <div className="glass-icon-box">
-                <Droplets size={18} />
-              </div>
-              <div>
-                <strong>Hot water facility</strong>
-                <small>Geyser equipped for reliable morning routines</small>
-              </div>
-            </div>
-
-            <div className="glass-feature">
-              <div className="glass-icon-box">
-                <Bath size={18} />
-              </div>
-              <div>
-                <strong>Clean, hygienic bathrooms</strong>
-                <small>Daily maintenance and sanitized amenities</small>
-              </div>
-            </div>
-
-            <div className="glass-feature">
-              <div className="glass-icon-box">
-                <Utensils size={18} />
-              </div>
-              <div>
-                <strong>Chicken twice a week</strong>
-                <small>Nutritious, tasty home-style meals included</small>
-              </div>
-            </div>
-          </div>
-
-          <div className="hero-glass-footer">
-            <button
-              className="hero-glass-action"
-              onClick={() => onOpenEnquiry('Hero Card: Five-sharing room and facilities enquiry')}
-            >
-              <span>Check Availability & Fees</span>
-              <ArrowUpRight size={15} />
-            </button>
-            <a href={`tel:${siteConfig.phoneNumber}`} className="hero-glass-phone">
-              <Phone size={13} />
-              <span>Direct Call: {siteConfig.phoneDisplay}</span>
-            </a>
-          </div>
-        </motion.aside>
-      </div>
-
-      <div className="hero-bottomline-refined">
-        <span>VMR BOYS HOSTEL</span>
-        <a href="#story" className="hero-scroll-link">
-          <span>SCROLL TO EXPLORE</span>
-          <ArrowDown size={14} />
-        </a>
+        </motion.div>
       </div>
     </section>
   );
@@ -637,7 +544,7 @@ export default function App() {
       <motion.div className="scroll-progress" style={{ scaleX }} />
       <Header onOpenEnquiry={() => openEnquiry('General hostel enquiry')} />
       <main>
-        <Hero onOpenEnquiry={openEnquiry} />
+        <Hero />
         <Marquee />
         <StorySection />
         <RoomsSection onOpenEnquiry={openEnquiry} />
