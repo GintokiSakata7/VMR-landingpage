@@ -150,83 +150,92 @@ function Header({ onOpenEnquiry }) {
 }
 
 function Hero() {
+  const highlights = [
+    { num: '01', title: 'Five-sharing rooms', meta: 'Spacious shared living' },
+    { num: '02', title: 'Hot water daily', meta: 'Available every day' },
+    { num: '03', title: 'Clean bathrooms', meta: 'Maintained regularly' },
+    { num: '04', title: 'Chicken 2× a week', meta: 'Alongside daily meals' },
+  ];
+
   return (
-    <section className="hero-clean" id="top">
-      <div className="hero-clean-grid">
+    <section className="hero-editorial" id="top">
+      <div className="hero-editorial-media">
+        <Photo
+          src="https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=1800&q=90"
+          alt="Spacious shared hostel room with clean beds and natural daylight"
+          eager
+        />
+        <div className="hero-editorial-scrim" aria-hidden="true" />
+      </div>
+
+      <div className="hero-editorial-inner">
         <motion.div
-          className="hero-clean-copy"
+          className="hero-editorial-body"
           initial="hidden"
           animate="visible"
-          variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.06, delayChildren: 0.03 } } }}
+          variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.06, delayChildren: 0.04 } } }}
         >
-          <motion.p
-            className="hero-clean-label"
-            variants={{ hidden: { opacity: 0, y: 8 }, visible: { opacity: 1, y: 0, transition: { duration: 0.35 } } }}
+          <motion.div
+            variants={{ hidden: { opacity: 0, y: 8 }, visible: { opacity: 1, y: 0, transition: { duration: 0.4 } } }}
           >
-            <span className="hero-clean-dot" aria-hidden="true" />
-            VMR Boys Hostel · {siteConfig.city}
-          </motion.p>
+            <Eyebrow light>VMR BOYS HOSTEL · {siteConfig.city.toUpperCase()}</Eyebrow>
+          </motion.div>
 
           <motion.h1
-            variants={{ hidden: { opacity: 0, y: 12 }, visible: { opacity: 1, y: 0, transition: { duration: 0.45, ease: [0.22, 1, 0.36, 1] } } }}
+            variants={{ hidden: { opacity: 0, y: 14 }, visible: { opacity: 1, y: 0, transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] } } }}
           >
-            A clean, comfortable<br />place to <em>call home.</em>
+            More than a bed.<br />
+            A better way <em>to stay.</em>
           </motion.h1>
 
           <motion.p
-            className="hero-clean-desc"
-            variants={{ hidden: { opacity: 0, y: 10 }, visible: { opacity: 1, y: 0, transition: { duration: 0.4 } } }}
+            className="hero-editorial-lead"
+            variants={{ hidden: { opacity: 0, y: 10 }, visible: { opacity: 1, y: 0, transition: { duration: 0.45 } } }}
           >
-            Spacious five-sharing rooms, daily hot water, hygienic bathrooms, and home-style meals with chicken twice a week. Everything a student or working professional needs.
+            Spacious five-sharing rooms, daily hot water, clean bathrooms and chicken twice a week.
           </motion.p>
 
           <motion.div
-            className="hero-clean-actions"
-            variants={{ hidden: { opacity: 0, y: 10 }, visible: { opacity: 1, y: 0, transition: { duration: 0.4 } } }}
+            className="hero-editorial-actions"
+            variants={{ hidden: { opacity: 0, y: 10 }, visible: { opacity: 1, y: 0, transition: { duration: 0.45 } } }}
           >
             <WhatsAppLink
-              className="hero-clean-wa"
+              className="hero-wa-button"
               message="Hi, I would like to know more about VMR Boys Hostel. Please share room availability, fees, and food details."
               icon={false}
             >
               <WhatsAppIcon size={18} />
-              Enquire on WhatsApp
+              <span>Enquire on WhatsApp</span>
             </WhatsAppLink>
 
-            <div className="hero-clean-subactions">
-              <a className="hero-clean-call" href={`tel:${siteConfig.phoneNumber}`}>
-                <Phone size={14} /> Call {siteConfig.phoneDisplay}
+            <div className="hero-secondary-actions">
+              <a className="hero-ghost-call" href={`tel:${siteConfig.phoneNumber}`}>
+                <Phone size={14} />
+                <span>Call {siteConfig.phoneDisplay}</span>
               </a>
-              <a className="hero-clean-secondary" href="#rooms">
-                View rooms <ArrowDown size={14} />
+              <a className="hero-ghost-link" href="#rooms">
+                <span>Explore rooms</span>
+                <ArrowDown size={15} />
               </a>
             </div>
-          </motion.div>
-
-          <motion.div
-            className="hero-clean-highlights"
-            variants={{ hidden: { opacity: 0 }, visible: { opacity: 1, transition: { duration: 0.35, delay: 0.12 } } }}
-          >
-            <span><BedDouble size={15} /> 5-Sharing Rooms</span>
-            <span><Droplets size={15} /> Hot Water</span>
-            <span><Utensils size={15} /> Chicken 2×/week</span>
           </motion.div>
         </motion.div>
 
         <motion.div
-          className="hero-clean-image"
-          initial={{ opacity: 0, scale: 0.98 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1], delay: 0.06 }}
+          className="hero-editorial-specs"
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
         >
-          <Photo
-            src="https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=1400&q=88"
-            alt="Spacious hostel room with clean beds"
-            eager
-          />
-          <div className="hero-clean-image-tag">
-            <MapPin size={12} /> {siteConfig.city}
-          </div>
+          {highlights.map((item) => (
+            <div className="hero-spec-item" key={item.num}>
+              <span>{item.num}</span>
+              <div>
+                <strong>{item.title}</strong>
+                <small>{item.meta}</small>
+              </div>
+            </div>
+          ))}
         </motion.div>
       </div>
     </section>
